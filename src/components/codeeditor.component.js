@@ -18,7 +18,8 @@ import 'zone.js/dist/zone';
 })
 export class CodeEditor {
     text:string = "Test";
-    options:any = {maxLines: 1000, printMargin: false};
+    //options:any = {maxLines: 1000, printMargin: false};
+    options:any = { printMargin: false};
 
     onChange(code) {
         console.log("new code", code);

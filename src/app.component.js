@@ -3,6 +3,8 @@
 import { NgModule, Component, Input, Attribute } from '@angular/core';
 import 'rxjs/add/operator/map';
 
+import {GameService} from './services/game.service';
+
 import './three.min.js';
 //import './three.module.js';
 
@@ -18,12 +20,18 @@ import './jquery.layout.min.js';
         <div class="ui-layout-center" style="margin  : 0;padding : 0;">
             <canvas id="renderCanvas"></canvas>
         </div>
-        <div class="ui-layout-north">North {{text0}}</div>
-        <div class="ui-layout-south" style="margin: 0;padding : 0;">
-            <codeeditor-component style="margin: 0;padding : 0;"></codeeditor-component>
+        <div class="ui-layout-north">
+            <navmenu></navmenu>
         </div>
-        <div class="ui-layout-east">East</div>
-        <div class="ui-layout-west">West</div>
+        <div class="ui-layout-south" style="margin: 0;padding : 0;">
+            <scripteditorlayout></scripteditorlayout>
+        </div>
+        <div class="ui-layout-east">
+            <scene-list></scene-list>
+        </div>
+        <div class="ui-layout-west">
+            <assets-list></assets-list>
+        </div>
     </div>
     `,
 })
@@ -31,7 +39,9 @@ export class MainApp {
     text0 = "test text string...";
     scene = null;
 
-    constructor(){
+    constructor(gameservice:GameService){
+        console.log(gameservice);
+        this.gameservice = gameservice;
         var self = this;
         //console.log(this);
         //var text = "hello";
@@ -39,7 +49,9 @@ export class MainApp {
         //console.log("main-app");
         window.addEventListener('DOMContentLoaded', ()=>{
             //console.log("loaded?");
-            $('#container').layout({resizable:true});
+            var layout =  $('#container').layout({resizable:true});
+            //layout.toggle("north");
+            layout.sizePane("south", 300);
             self.init();
         });
     }
@@ -59,7 +71,13 @@ export class MainApp {
 		var geometry = new THREE.BoxGeometry( 1, 1, 1 );
 		var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 		var cube = new THREE.Mesh( geometry, material );
+        cube.name = "cube";
 		scene.add( cube );
+        cube = new THREE.Mesh( geometry, material );
+        cube.name = "cube";
+        scene.add( cube );
+
+        this.gameservice.scene = scene;
 
 		camera.position.z = 5;
 
