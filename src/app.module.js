@@ -13,16 +13,14 @@ import { MainApp } from './app.component';
 
 import {AssetsList} from './components/assets.component';
 import {SceneList} from './components/scene.component';
-
+import {Objectprops} from './components/objectprops.component';
 import {GameEditor} from './components/gameeditor.component';
 import {CodeEditor} from './components/codeeditor.component';
 import {ScriptEditorExplore} from './components/scripteditorexplore.component';
 import {ScriptEditorLayout} from './components/scripteditorlayout.component';
 import {ScriptEditorMenu} from './components/scripteditormenu.component';
-
 import {EditorMenu} from './components/editormenu.component';
 import {NavMenu} from './components/navmenu.component';
-
 import {GameService} from './services/game.service';
 
 //const routing = RouterModule.forRoot([
@@ -39,15 +37,16 @@ import {GameService} from './services/game.service';
         MainApp,
         AceEditorDirective,
         AceEditorComponent,
-        EditorMenu,
+        GameEditor,
+        NavMenu,
         ScriptEditorLayout,
+        SceneList,
+        AssetsList,
         ScriptEditorMenu,
         ScriptEditorExplore,
         CodeEditor,
-        AssetsList,
-        SceneList,
-        NavMenu,
-        GameEditor
+        Objectprops,
+        EditorMenu
     ],
     providers: [
         GameService

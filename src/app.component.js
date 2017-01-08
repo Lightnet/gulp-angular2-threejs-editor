@@ -1,4 +1,4 @@
-//setup app
+//setup component main page html
 
 import { NgModule, Component, Input, Attribute } from '@angular/core';
 import 'rxjs/add/operator/map';

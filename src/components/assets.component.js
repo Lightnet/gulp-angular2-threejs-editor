@@ -5,7 +5,7 @@ import {GameService} from '../services/game.service';
 @Component({
     selector: 'assets-list',
     template: `
-        Assets Component
+        Assets
         <button (click)="refresh()">Refresh</button>
         <!--
         <div *ngIf="gameservice.scene">

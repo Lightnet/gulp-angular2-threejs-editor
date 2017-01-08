@@ -15,7 +15,7 @@ import '../jquery.layout.min.js';
 @Component({
     selector: 'gameeditor',
     template: `
-    <navmenu></navmenu>
+    <editormenu></editormenu>
     <div id="container" style="height:100%;">
         <div class="ui-layout-center" style="margin: 0;padding : 0;">
             <canvas id="renderCanvas"></canvas>
@@ -28,6 +28,7 @@ import '../jquery.layout.min.js';
         </div>
         <div class="ui-layout-east">
             <scene-list></scene-list>
+            <objectprops></objectprops>
         </div>
         <div class="ui-layout-west">
             <assets-list></assets-list>
@@ -39,7 +40,7 @@ export class GameEditor implements OnInit{
 
     constructor(gameservice:GameService){
         this.gameservice = gameservice;
-        var self = this;
+        //var self = this;
         //window.addEventListener('DOMContentLoaded', ()=>{
             //console.log("loaded?");
             //self.init();
