@@ -1,6 +1,7 @@
 //setup app
 
 import { NgModule, Component, Input, Attribute } from '@angular/core';
+import { FormsModule }    from '@angular/forms';
 //import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 //import { ActivatedRoute, RouterModule } from '@angular/router';
@@ -13,6 +14,7 @@ import { MainApp } from './app.component';
 import {AssetsList} from './components/assets.component';
 import {SceneList} from './components/scene.component';
 
+import {GameEditor} from './components/gameeditor.component';
 import {CodeEditor} from './components/codeeditor.component';
 import {ScriptEditorExplore} from './components/scripteditorexplore.component';
 import {ScriptEditorLayout} from './components/scripteditorlayout.component';
@@ -44,7 +46,8 @@ import {GameService} from './services/game.service';
         CodeEditor,
         AssetsList,
         SceneList,
-        NavMenu
+        NavMenu,
+        GameEditor
     ],
     providers: [
         GameService

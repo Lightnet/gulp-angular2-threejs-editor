@@ -60,7 +60,7 @@ gulp.task('build:vendor', () => {
 });
 
 gulp.task('css:copy', () => {
-  return gulp.src(['src/layout-default-latest.css',
+  return gulp.src(['src/*.css','src/**/*.css'
     ])
     .pipe(gulp.dest('public'));
 });
@@ -77,7 +77,7 @@ gulp.task('js:copy', () => {
 
 //development index.html
 gulp.task('html:copy', () => {
-  return gulp.src(['src/index.html'])
+  return gulp.src(['src/*.html','src/**/*.html'])
     .pipe(gulp.dest('public'));
 });
 
@@ -112,7 +112,8 @@ gulp.task('watch:index.js', () => {
 });
 
 gulp.task('watch:file', () =>{
-    gulp.watch(['src/index.html'],['html:copy']);
+    gulp.watch(['src/*.html','src/**/*.html'],['html:copy']);
+    gulp.watch(['src/*.css','src/**/*.css'],['css:copy']);
 });
 
 gulp.task('watch', ['watch:index.js','watch:file']);
