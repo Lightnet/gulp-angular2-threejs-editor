@@ -4,9 +4,8 @@
 
 ##3D Webgl:
 
- * [Demo](https://lightnet.github.io/gulp-angular2-threejs-editor/public/)
+ * [Angular 2 Threejs Editor Prototype](https://lightnet.github.io/gulp-angular2-threejs-editor/public/)
  
-
 ### Authors and Contributors:
 
  * Lightnet
