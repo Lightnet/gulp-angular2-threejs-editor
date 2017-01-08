@@ -26,19 +26,20 @@ npm start
 
 It need to install package file from package.json. It will be listed in dependencies that will be add into node_modules to run build and server. The server is very simple with gulp using task with watch changes.
 
-Note the vender.js file is around 9.88 MB (+/-) depend what you include with it. By default files are angular 2 and support files to run javascript.
+Note the vender.js file is around 10.4 MB (+/-) depend what you include with it. By default files are angular 2 and support files to run javascript.
 
 ```
 const vendors = [
     'babel-polyfill',
     'zone.js/dist/zone',
+    'rxjs/add/operator/map',
     '@angular/platform-browser-dynamic',
     '@angular/core',
     '@angular/common',
     '@angular/platform-browser',
     '@angular/router',
     '@angular/http',
-    'rxjs/add/operator/map',
+    '@angular/forms',
     'ng2-ace-editor'
 ];
 ```

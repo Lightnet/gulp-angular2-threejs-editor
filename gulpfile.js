@@ -18,13 +18,14 @@ const reload      = browserSync.reload;
 const vendors = [
     'babel-polyfill',
     'zone.js/dist/zone',
+    'rxjs/add/operator/map',
     '@angular/platform-browser-dynamic',
     '@angular/core',
     '@angular/common',
     '@angular/platform-browser',
     '@angular/router',
     '@angular/http',
-    'rxjs/add/operator/map',
+    '@angular/forms',
     'ng2-ace-editor'
 ];
 
