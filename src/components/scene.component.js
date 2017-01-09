@@ -6,7 +6,7 @@ import {GameService} from '../services/game.service';
     template: `
         <div style="height:50%;width:100%">
             Scene
-            <button (click)="refresh()">Refresh</button>
+            <!--<button (click)="refresh()">Refresh</button>-->
             <div *ngIf="gameservice.scene">
                 <ul>
                 <li *ngFor="let obj of gameservice.scene.children">
@@ -26,6 +26,7 @@ export class SceneList {
     selectobject(_obj){
         console.log("scene object selected:");
         console.log(_obj);
+        this.gameservice.selectobject = _obj;
     }
 
     refresh(){

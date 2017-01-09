@@ -30,8 +30,8 @@ import {GameService} from './services/game.service';
 
 @NgModule({
     imports: [
-        BrowserModule//,
-        //routing,
+        BrowserModule,
+        FormsModule
     ],
     declarations: [
         MainApp,

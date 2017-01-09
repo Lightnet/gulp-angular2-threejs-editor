@@ -55,10 +55,31 @@ export class GameEditor implements OnInit{
     }
 
     setup_layout(){
-        $('#container').layout({resizable:true});
+        var self = this;
+        $('#container').layout({
+            resizable:true,
+            onresize:()=>{
+                //console.log("resize");
+                self.resizecanvas();
+            }
+        });
         var layout = $('#container').layout();
         layout.sizePane("south", 200);
         layout.toggle("north");
+    }
+
+    resizecanvas(){
+        if((this.camera !=null)&&(this.renderer != null)){
+            var layout = $('#container').layout();
+            var width     = layout.state.center.innerWidth;
+            var height     = layout.state.center.innerHeight;
+            this.camera.aspect = width / height;
+            this.camera.updateProjectionMatrix();
+            this.renderer.setSize( width,height );
+            layout = null;
+            width = null;
+            height = null;
+        }
     }
 
     init(){
@@ -70,13 +91,21 @@ export class GameEditor implements OnInit{
 		//var renderer = new THREE.WebGLRenderer();
         var renderer = new THREE.WebGLRenderer({ canvas: canvas });
 		//renderer.setSize( window.innerWidth, window.innerHeight );
-        renderer.setSize( 800, 600 );
+        var layout = $('#container').layout();
+        var width     = layout.state.center.innerWidth;
+        var height     = layout.state.center.innerHeight;
+        renderer.setSize( width, height );
 		//document.body.appendChild( renderer.domElement );
 
+
+        this.renderer = renderer;
+        this.camera = camera;
 		var geometry = new THREE.BoxGeometry( 1, 1, 1 );
 		var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 		var cube = new THREE.Mesh( geometry, material );
         cube.name = "cube";
+        //cube.position.x = 5;
+        //cube.position.y = -0.1;
 		scene.add( cube );
         //cube = new THREE.Mesh( geometry, material );
         //cube.name = "cube";

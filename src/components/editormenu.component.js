@@ -55,6 +55,7 @@ import '../three.min.js';
     `
 })
 export class EditorMenu {
+    
     constructor(gameservice:GameService){
         this.gameservice = gameservice;
     }
@@ -106,10 +107,6 @@ export class EditorMenu {
         console.log('scriptstop');
     }
 
-
-
-
-
     addcube(){
         console.log("addcube");
         if(this.gameservice.scene !=null){
@@ -124,10 +121,27 @@ export class EditorMenu {
 
     addspshere(){
         console.log("addspshere");
+        console.log("addcube");
+        if(this.gameservice.scene !=null){
+            console.log("cube");
+            var geometry = new THREE.SphereGeometry( 1, 32, 32 );
+    		var material = new THREE.MeshBasicMaterial( {color: 0xffff00} );
+    		var sphere  = new THREE.Mesh( geometry, material );
+            sphere.name = "sphere";
+    		this.gameservice.scene.add( sphere  );
+        }
     }
 
     addsplane(){
         console.log("addsplane");
+        if(this.gameservice.scene !=null){
+            console.log("cube");
+            var geometry = new THREE.PlaneBufferGeometry( 5, 5, 32 );
+    		var material = new THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide} );
+    		var plane = new THREE.Mesh( geometry, material );
+            plane.name = "plane";
+    		this.gameservice.scene.add( plane   );
+        }
     }
 
     addmesh(){

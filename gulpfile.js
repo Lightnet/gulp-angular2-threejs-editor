@@ -152,7 +152,10 @@ gulp.task('browser-sync', function() {
 // watch = watch files changes
 // serve =setup server url http://127.0.0.1:80
 //gulp.task('dev', ['clean','copy','build:vendor','build','watch','serve']);
-gulp.task('dev', ['clean','copy','build:vendor','build','watch','browser-sync']);
+gulp.task('devfull', ['clean','copy','build:vendor','build','watch','browser-sync']);
+
+gulp.task('dev', ['copy','build','watch','browser-sync']);
+
 // default development build
 gulp.task('default', ['dev']);
 
